@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115.13"
+uvicorn = "^0.34.3"
+python-multipart = "^0.0.20"
+websockets = "^15.0.1"
+pydantic = "^2.11.7"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.41"}
+asyncpg = "^0.30.0"
+python-dotenv = "^1.1.1"
+psycopg2-binary = "^2.9.10"
+requests = "^2.32.4"
+redis = "^6.2.0"
+pillow = "^11.3.0"
+minio = "^7.2.16"
+
+
+[tool.poetry.group.dev.dependencies]
+alembic = "^1.16.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

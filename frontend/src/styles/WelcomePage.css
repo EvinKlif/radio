@@ -1,0 +1,169 @@
+
+.welcome-page {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.726);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  cursor: pointer;
+}
+/* Общие настройки */
+.a-star-container {
+  display: flex;
+  font-size: 5rem;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Общий стиль букв */
+.letter-a, .letter-t, .letter-r {
+  color: transparent;
+  -webkit-text-stroke: 1px white; /* Внешний контур */
+  position: relative;
+}
+
+/* Внутренний контур для A, T, R */
+.letter-a::before,
+.letter-t::before,
+.letter-r::before {
+  content: attr(data-letter);
+  position: absolute;
+  left: 0;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.7); /* Внутренний контур */
+}
+
+/* Контейнер для S */
+.letter-s-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Стиль для S (градиентный контур) */
+.letter-s {
+  font-size: 12rem;
+  color: black;
+  position: relative;
+  z-index: 1;
+}
+
+/* Градиентный контур S */
+.letter-s::before {
+  content: "S";
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  color: transparent;
+  -webkit-text-stroke: 2px;
+  background-image: conic-gradient(
+    from var(--angle),
+    #ff4545,
+    #00ff99,
+    #006aff,
+    #ff0095,
+    #ff4545
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: 3s spin linear infinite;
+}
+
+/* Размытое свечение S */
+.letter-s::after {
+  content: "S";
+  position: absolute;
+  left: 0;
+  z-index: -2;
+  color: transparent;
+  -webkit-text-stroke: 4px;
+  background-image: conic-gradient(
+    from var(--angle),
+    #ff4545,
+    #00ff99,
+    #006aff,
+    #ff0095,
+    #ff4545
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: 3s spin linear infinite;
+  filter: blur(8px);
+  opacity: 0.7;
+}
+
+/* Анимация градиента */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  to {
+    --angle: 360deg;
+  }
+}
+
+.welcome-text {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.welcome-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: white;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.radio-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  background: linear-gradient(to right, #ffffff, #cccccc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.2);
+  padding: 0 20px;
+  display: inline-block;
+  position: relative;
+}
+
+.radio-title::after {
+  content: '';
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: -5px;
+  height: 2px;
+  background: linear-gradient(to right, 
+    rgba(255,255,255,0.8), 
+    rgba(255,255,255,0.2));
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+  .welcome-title { font-size: 2rem; }
+  .radio-title { 
+    font-size: 2.2rem;
+    letter-spacing: 4px;
+  }
+}
