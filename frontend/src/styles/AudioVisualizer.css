@@ -1,6 +1,6 @@
 .audio-visualizer-container {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -30%);
   width: 100%;
@@ -179,7 +179,6 @@
 
 /* Кнопка Play/Stop */
 .play-button {
-  margin: 20px 0;
   padding: 15px 40px;
   border: none;
   outline: none;
